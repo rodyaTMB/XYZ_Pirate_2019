@@ -14,6 +14,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "VerticalMovement",
+                    "type": "Button",
+                    "id": "97cbd261-bdaf-4712-81e1-d06f023f0f60",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "SaySomething",
                     "type": "Button",
                     "id": "964df8f0-2d1e-45ca-bc9a-6357a6c09c9b",
@@ -35,7 +43,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
+                    "name": "Negative",
                     "id": "d52c7ebf-fdf0-407c-a12a-472ab947399f",
                     "path": "<Keyboard>/a",
                     "interactions": "",
@@ -46,13 +54,46 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "positive",
+                    "name": "Positive",
                     "id": "e85e664e-9b9f-44fa-b7b2-6551ff2119fd",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "HorizontalMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Keyboard",
+                    "id": "2a736ad7-6c95-4f93-bc3f-75ca31b82150",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "VerticalMovement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "positive",
+                    "id": "4fdf070e-55d8-43f1-8edc-ed75eb799fd2",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "VerticalMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "negative",
+                    "id": "eb379547-cafd-4a05-9efb-7dfbca907938",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "VerticalMovement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
