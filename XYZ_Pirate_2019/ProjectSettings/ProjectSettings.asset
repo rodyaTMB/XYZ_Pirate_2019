@@ -637,6 +637,6 @@ PlayerSettings:
   projectName: XYZ_Pirate_2019 2024-12-26_16-05-56
   organizationId: rodyatmb
   cloudEnabled: 0
-  enableNativePlatformBackendsForNewInputSystem: 0
-  disableOldInputManagerSupport: 0
+  enableNativePlatformBackendsForNewInputSystem: 1
+  disableOldInputManagerSupport: 1
   legacyClampBlendShapeWeights: 0
