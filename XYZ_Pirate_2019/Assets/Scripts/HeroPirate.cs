@@ -6,9 +6,31 @@ public class HeroPirate : MonoBehaviour
 {
 
 	[SerializeField] float _speed;
+	[SerializeField] float _jumpPower;
+
+	Vector2 _drirection;
 
 	float _directionX;
 	float _directionY;
+
+	void Update()
+	{
+		MoveT();
+	}
+
+	public void SetDirection(Vector2 directioin)
+	{
+		_drirection = directioin;
+	}
+
+	public void MoveT()
+	{
+		if(_drirection.magnitude > 0)
+		{
+			var delta = _drirection * _speed * Time.deltaTime;
+			transform.position = transform.position + new Vector3(delta.x, delta.y, transform.position.z);
+		}
+	}
 
 	public void SetDirectionX(float direction)
 	{
@@ -16,7 +38,7 @@ public class HeroPirate : MonoBehaviour
 	}
 	public void SetDirectionY(float direction)
 	{
-		_directionY = direction;
+		_directionY = direction * _jumpPower;
 	}
 
 	public void SaySomething()
@@ -24,12 +46,8 @@ public class HeroPirate : MonoBehaviour
 		Debug.Log("Саламалейкум ");
 	}
 
-	void Update()
-	{
-		Move();
-	}
 
-	public void Move()
+	public void MyMove()
 	{
 		if (_directionX != 0 || _directionY != 0)
 		{
