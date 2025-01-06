@@ -13,17 +13,6 @@ public class HeroInputReader : MonoBehaviour
 		_heroPirate.SetDirection(direction);
 	}
 
-	public void OnHorizontalMovement(InputAction.CallbackContext context)
-	{
-		var direction = context.ReadValue<float>();
-		_heroPirate.SetDirectionX(direction);
-	}
-
-	public void OnVerticalMovement(InputAction.CallbackContext context)
-	{
-		var direction = context.ReadValue<float>();
-		_heroPirate.SetDirectionY(direction);
-	}
 
 	public void OnSaySomething(InputAction.CallbackContext context)
 	{
@@ -32,4 +21,16 @@ public class HeroInputReader : MonoBehaviour
 			_heroPirate.SaySomething();
 		}
 	}
+
+	//public void OnHorizontalMovement(InputAction.CallbackContext context)
+	//{
+	//	var direction = context.ReadValue<float>();
+	//	_heroPirate.SetDirectionX(direction);
+	//}
+
+	//public void OnVerticalMovement(InputAction.CallbackContext context)
+	//{
+	//	var direction = context.ReadValue<float>();
+	//	_heroPirate.SetDirectionY(direction);
+	//}
 }

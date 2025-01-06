@@ -7,38 +7,56 @@ public class HeroPirate : MonoBehaviour
 
 	[SerializeField] float _speed;
 	[SerializeField] float _jumpPower;
+	[Space]
+	//[SerializeField] private LayerMask _groundLayer;
 
-	Vector2 _drirection;
+	[SerializeField] private LayerCheck _groundCheck;
+	//[Space]
+	//[Space]
+	//[SerializeField] private float _groundCheckRadius;
+	//[SerializeField] private Vector3 _groundCheckPositionDelta;
 
-	float _directionX;
-	float _directionY;
 
-	void Update()
+	private Rigidbody2D _rigidbody;
+	Vector2 _direction;
+
+	void Awake()
 	{
-		MoveT();
+		_rigidbody = GetComponent<Rigidbody2D>();
 	}
 
-	public void SetDirection(Vector2 directioin)
+	void FixedUpdate()
 	{
-		_drirection = directioin;
+		_rigidbody.velocity = new Vector2(_direction.x * _speed, _rigidbody.velocity.y);
+
+		var isJumping = _direction.y > 0;
+
+		if (isJumping && IsGrounded())
+		{
+			_rigidbody.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
+		}
 	}
 
 	public void MoveT()
 	{
-		if(_drirection.magnitude > 0)
+		if (_direction.magnitude > 0)
 		{
-			var delta = _drirection * _speed * Time.deltaTime;
+			var delta = _direction * _speed * Time.fixedDeltaTime;
 			transform.position = transform.position + new Vector3(delta.x, delta.y, transform.position.z);
 		}
 	}
 
-	public void SetDirectionX(float direction)
+	private bool IsGrounded()
 	{
-		_directionX = direction;
+		return _groundCheck.IsTouchingLayer;
+		//var hit = Physics2D.CircleCast(transform.position + _groundCheckPositionDelta, _groundCheckRadius, Vector2.down, 0, _groundLayer);
+		//return hit.collider != null;
 	}
-	public void SetDirectionY(float direction)
+
+	public void SetDirection(Vector2 directioin)
 	{
-		_directionY = direction * _jumpPower;
+		_direction = directioin;
+
 	}
 
 	public void SaySomething()
@@ -46,20 +64,37 @@ public class HeroPirate : MonoBehaviour
 		Debug.Log("Саламалейкум ");
 	}
 
+	//private void OnDrawGizmos()
+	//{
+	//	Gizmos.color = IsGrounded() ? Color.green : Color.red;
+	//	Gizmos.DrawSphere(transform.position, 0.3f);
+	//}
 
-	public void MyMove()
-	{
-		if (_directionX != 0 || _directionY != 0)
-		{
+	//float _directionX;
+	//float _directionY;
 
-			var deltaX = _directionX * _speed * Time.deltaTime;
-			var deltaY = _directionY * _speed * Time.deltaTime;
+	//public void SetDirectionX(float direction)
+	//{
+	//	_directionX = direction;
+	//}
+	//public void SetDirectionY(float direction)
+	//{
+	//	_directionY = direction * _jumpPower;
+	//}
+
+	//public void MyMove()
+	//{
+	//	if (_directionX != 0 || _directionY != 0)
+	//	{
+
+	//		var deltaX = _directionX * _speed * Time.deltaTime;
+	//		var deltaY = _directionY * _speed * Time.deltaTime;
 
 
-			var newXPosition = transform.position.x + deltaX;
-			var newYPosition = transform.position.y + deltaY;
+	//		var newXPosition = transform.position.x + deltaX;
+	//		var newYPosition = transform.position.y + deltaY;
 
-			transform.position = new Vector3(newXPosition, newYPosition, transform.position.z);
-		}
-	}
+	//		transform.position = new Vector3(newXPosition, newYPosition, transform.position.z);
+	//	}
+	//}
 }
