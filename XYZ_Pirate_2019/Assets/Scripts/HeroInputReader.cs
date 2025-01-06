@@ -6,20 +6,18 @@ using UnityEngine.InputSystem;
 public class HeroInputReader : MonoBehaviour
 {
 	[SerializeField] private HeroPirate _heroPirate;
-
-	public void OnMoveT(InputAction.CallbackContext context)
-	{
-		var direction = context.ReadValue<Vector2>();
-		_heroPirate.SetDirection(direction);
-	}
-
-
 	public void OnSaySomething(InputAction.CallbackContext context)
 	{
 		if (context.canceled)
 		{
 			_heroPirate.SaySomething();
 		}
+	}
+
+	public void OnMoveT(InputAction.CallbackContext context)
+	{
+		var direction = context.ReadValue<Vector2>();
+		_heroPirate.SetDirection(direction);
 	}
 
 	//public void OnHorizontalMovement(InputAction.CallbackContext context)

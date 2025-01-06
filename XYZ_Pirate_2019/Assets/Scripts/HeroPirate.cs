@@ -24,45 +24,51 @@ public class HeroPirate : MonoBehaviour
 	{
 		_rigidbody = GetComponent<Rigidbody2D>();
 	}
-
-	void FixedUpdate()
-	{
-		_rigidbody.velocity = new Vector2(_direction.x * _speed, _rigidbody.velocity.y);
-
-		var isJumping = _direction.y > 0;
-
-		if (isJumping && IsGrounded())
-		{
-			_rigidbody.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
-		}
-	}
-
-	public void MoveT()
-	{
-		if (_direction.magnitude > 0)
-		{
-			var delta = _direction * _speed * Time.fixedDeltaTime;
-			transform.position = transform.position + new Vector3(delta.x, delta.y, transform.position.z);
-		}
-	}
-
-	private bool IsGrounded()
-	{
-		return _groundCheck.IsTouchingLayer;
-		//var hit = Physics2D.CircleCast(transform.position + _groundCheckPositionDelta, _groundCheckRadius, Vector2.down, 0, _groundLayer);
-		//return hit.collider != null;
-	}
-
 	public void SetDirection(Vector2 directioin)
 	{
 		_direction = directioin;
 
 	}
 
+	void FixedUpdate()
+	{
+		_rigidbody.velocity = new Vector2(_direction.x * _speed, _rigidbody.velocity.y);
+
+		var isJumping = _direction.y > 0;
+		if (isJumping)
+		{
+			if (IsGrounded())
+			{
+				_rigidbody.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
+			}
+			else if (_rigidbody.velocity.y > 0)
+			{
+				_rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _rigidbody.velocity.y * 0.5f);
+			}
+		}
+	}
+	private bool IsGrounded()
+	{
+		return _groundCheck.IsTouchingLayer;
+		//var hit = Physics2D.CircleCast(transform.position + _groundCheckPositionDelta, _groundCheckRadius, Vector2.down, 0, _groundLayer);
+		//return hit.collider != null;
+	}
 	public void SaySomething()
 	{
 		Debug.Log("Саламалейкум ");
 	}
+
+	//public void MoveT()
+	//{
+	//	if (_direction.magnitude > 0)
+	//	{
+	//		var delta = _direction * _speed * Time.fixedDeltaTime;
+	//		transform.position = transform.position + new Vector3(delta.x, delta.y, transform.position.z);
+	//	}
+	//}
+
+
+
 
 	//private void OnDrawGizmos()
 	//{
