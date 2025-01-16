@@ -1284,7 +1284,7 @@ GameObject:
   - component: {fileID: 1252832808}
   - component: {fileID: 1252832807}
   - component: {fileID: 1252832810}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PalmTreeBackgroundSheet_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1529,8 +1529,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58dba7f99679df14aab0b975a32cb50b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 4
-  _jumpPower: 24
+  _speed: 5
+  _jumpPower: 30
   _groundCheck: {fileID: 2133539910}
 --- !u!114 &1414454830
 MonoBehaviour:
@@ -1895,7 +1895,7 @@ GameObject:
   - component: {fileID: 1725928039}
   - component: {fileID: 1725928038}
   - component: {fileID: 1725928041}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Barrel_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2013,7 +2013,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &1813640016
 GameObject:
   m_ObjectHideFlags: 0
