@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6312091077226543601}
   - component: {fileID: 6312091077226543600}
   - component: {fileID: 2197495637719765921}
+  - component: {fileID: 5088063803052846730}
   m_Layer: 0
   m_Name: SilverCoin
   m_TagString: SilverCoin
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 6312091077226543603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.31, y: 3.65, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.48, y: 1.48, z: 1.48}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -154,4 +155,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a597ef3f9ba736d4cbc831529e788f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coin: {fileID: 6312091077226543603}
+--- !u!114 &5088063803052846730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6312091077226543603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 128f5af3447c3b14aba23b79409ef59e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _loop: 1
+  _sprites:
+  - {fileID: -2322180950842035098, guid: 39909df7a1667f84e93ae131ab632d97, type: 3}
+  - {fileID: -4893972260818282012, guid: 39909df7a1667f84e93ae131ab632d97, type: 3}
+  - {fileID: -6323751108524238166, guid: 39909df7a1667f84e93ae131ab632d97, type: 3}
+  - {fileID: 2722280177590742205, guid: 39909df7a1667f84e93ae131ab632d97, type: 3}
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls: []
